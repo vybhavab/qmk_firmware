@@ -22,7 +22,10 @@ NKRO_ENABLE      = yes           # Enable N-Key Rollover
 UNICODE_ENABLE   = no  # Unicode
 SWAP_HANDS_ENABLE= no   # Allow swapping hands of keyboard
 
-RGB_MATRIX_ENABLE = no # enable later
+LTO_ENABLE			 = yes  # Enable Link Time Optimization
+MUSIC_ENABLE = no
+
+RGB_MATRIX_ENABLE = yes # enable later
 RGB_MATRIX_DRIVER = IS31FL3731
 DEBOUNCE_TYPE = sym_eager_pr
 
@@ -38,3 +41,5 @@ AUDIO_SUPPORTED = no
 BACKLIGHT_SUPPORTED = no
 
 MOUSE_SHARED_EP = no
+
+KEY_OVERRIDE_ENABLE = yes

@@ -23,44 +23,52 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x3297
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    ZSA Technology Labs
-#define PRODUCT_ID      0x4974
-#define PRODUCT         ErgoDox EZ
+#define VENDOR_ID 0x3297
+#define DEVICE_VER 0x0001
+#define MANUFACTURER ZSA Technology Labs
+#define PRODUCT_ID 0x4974
+#define PRODUCT ErgoDox EZ
 
 /* key matrix size */
 #define MATRIX_ROWS 14
 #define MATRIX_ROWS_PER_SIDE (MATRIX_ROWS / 2)
 #define MATRIX_COLS 6
 
-#define COL_EXPANDED { true, true, true, true, true, true, true, false, false, false, false, false, false, false }
-#define MATRIX_ONBOARD_ROW_PINS { 0, 0, 0, 0, 0, 0, 0, B0,  B1,  B2,  B3,  D2,  D3,  C6 }
-#define MATRIX_ONBOARD_COL_PINS { F0,  F1,  F4,  F5,  F6,  F7 }
+#define COL_EXPANDED \
+    { true, true, true, true, true, true, true, false, false, false, false, false, false, false }
+#define MATRIX_ONBOARD_ROW_PINS \
+    { 0, 0, 0, 0, 0, 0, 0, B0, B1, B2, B3, D2, D3, C6 }
+#define MATRIX_ONBOARD_COL_PINS \
+    { F0, F1, F4, F5, F6, F7 }
 #define DIODE_DIRECTION COL2ROW
 #define EXPANDER_COL_REGISTER GPIOB
 #define EXPANDER_ROW_REGISTER GPIOA
-#define MATRIX_EXPANDER_COL_PINS { 5, 4, 3, 2, 1, 0 }
-#define MATRIX_EXPANDER_ROW_PINS { 0, 1, 2, 3, 4, 5, 6 }
+#define MATRIX_EXPANDER_COL_PINS \
+    { 5, 4, 3, 2, 1, 0 }
+#define MATRIX_EXPANDER_ROW_PINS \
+    { 0, 1, 2, 3, 4, 5, 6 }
 
-#define MOUSEKEY_INTERVAL           20
-#define MOUSEKEY_DELAY              0
-#define MOUSEKEY_TIME_TO_MAX        60
-#define MOUSEKEY_MAX_SPEED          7
-#define MOUSEKEY_WHEEL_DELAY        400
-#define MOUSEKEY_WHEEL_INTERVAL     MOUSEKEY_INTERVAL
-#define MOUSEKEY_WHEEL_MAX_SPEED    MOUSEKEY_MAX_SPEED
-#define MOUSEKEY_WHEEL_TIME_TO_MAX  MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_INTERVAL 20
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_TIME_TO_MAX 60
+#define MOUSEKEY_MAX_SPEED 7
+#define MOUSEKEY_WHEEL_DELAY 400
+#define MOUSEKEY_WHEEL_INTERVAL MOUSEKEY_INTERVAL
+#define MOUSEKEY_WHEEL_MAX_SPEED MOUSEKEY_MAX_SPEED
+#define MOUSEKEY_WHEEL_TIME_TO_MAX MOUSEKEY_TIME_TO_MAX
 
 #define DEBOUNCE 30
 
-#define TAPPING_TOGGLE  1
+#define TAPPING_TOGGLE 1
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
-#define TAPPING_TERM    200
+#define TAPPING_TERM 200
 #define IGNORE_MOD_TAP_INTERRUPT // this makes it possible to do rolling combos (zx) with keys that convert to other keys on hold (z becomes ctrl when you hold it, and when this option isn't enabled, z rapidly followed by x actually sends Ctrl-x. That's bad.)
+
+// NO AUDIO
+#define NO_MUSIC_MODE
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
@@ -68,19 +76,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LOCKING_RESYNC_ENABLE
 
 /* key combination for command */
-#define IS_COMMAND() ( \
-    get_mods() == (MOD_BIT(KC_LCTL) | MOD_BIT(KC_RCTL)) || \
-    get_mods() == (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT)) \
-)
+#define IS_COMMAND() (get_mods() == (MOD_BIT(KC_LCTL) | MOD_BIT(KC_RCTL)) || get_mods() == (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT)))
 
 /* number of backlight levels */
 #define BACKLIGHT_LEVELS 3
 
 #ifndef LED_BRIGHTNESS_LO
-#define LED_BRIGHTNESS_LO       15
+#    define LED_BRIGHTNESS_LO 15
 #endif
 #ifndef LED_BRIGHTNESS_HI
-#define LED_BRIGHTNESS_HI       255
+#    define LED_BRIGHTNESS_HI 255
 #endif
 #define LED_BRIGHTNESS_DEFAULT (LED_BRIGHTNESS_HI)
 
@@ -119,7 +124,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * manufacturer specs.
  */
 
-
 // RGB backlight
 #define DRIVER_ADDR_1 0b1110100
 #define DRIVER_ADDR_2 0b1110111
@@ -135,6 +139,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // RGB Matrix Animation modes. Explicitly enabled
 // For full list of effects, see:
 // https://docs.qmk.fm/#/feature_rgb_matrix?id=rgb-matrix-effects
+/*
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS
 #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
@@ -164,10 +169,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENABLE_RGB_MATRIX_PIXEL_RAIN
 #define ENABLE_RGB_MATRIX_PIXEL_FLOW
 #define ENABLE_RGB_MATRIX_PIXEL_FRACTAL
+*/
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #define ENABLE_RGB_MATRIX_TYPING_HEATMAP
 #define ENABLE_RGB_MATRIX_DIGITAL_RAIN
 // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
+#define RGB_MATRIX_KEYPRESSES
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
