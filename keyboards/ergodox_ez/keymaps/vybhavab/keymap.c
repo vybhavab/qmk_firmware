@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,          KC_SCLN,     KC_COMM,       KC_DOT,  KC_P,    KC_Y,    KC_NO,                G(S(C(KC_F16))),    KC_F,        KC_G,       KC_C,       KC_R,    KC_L,    KC_BSLS,
   LT(ARROWS, KC_ESC),KC_A,      KC_O,          KC_E,    KC_U,    KC_I,                                              KC_D,        KC_H,       KC_T,       KC_N,    KC_S,    LT(MOUSE,KC_MINS),
   KC_LSPO,         KC_QUOT,     KC_Q,          KC_J,    KC_K,    KC_X,    KC_DEL,               KC_KB_MUTE,         KC_B,        KC_M,       KC_W,       KC_V,    KC_Z,    KC_RSPC,
-  KC_HYPR,         KC_DLR,      OSL(LSWITCH),  KC_LEFT, KC_RGHT,                                                                        KC_UP,       KC_DOWN,    KC_SLSH,    KC_AT,   KC_MEH,
+  KC_HYPR,         KC_DLR,      OSL(LSWITCH),  KC_LEFT, KC_RGHT,                                                                 KC_UP,      KC_DOWN,    KC_SLSH, KC_AT,   KC_MEH,
                                                                  KC_MPRV, KC_MNXT,              KC_KB_VOLUME_DOWN,  KC_KB_VOLUME_UP,
                                                                           C(KC_LEFT),           C(KC_RIGHT),
                                                          KC_BSPC,KC_LGUI,KC_LCTL,         KC_LALT,            KC_ENT, KC_SPC
@@ -34,11 +34,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [QWERTY] = LAYOUT_ergodox_pretty(
   // left hand
-  KC_GRV,          KC_1,        KC_2,          KC_3,    KC_4,    KC_5,    KC_TRNS,              KC_TRNS,            KC_6,        KC_7,       KC_8,       KC_9,    KC_0,    KC_TRNS,
-  KC_TRNS,        KC_Q,        KC_W,          KC_E,    KC_R,    KC_T,    KC_LBRC,               KC_RBRC,            KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,    KC_BSLS,
-  KC_TRNS,        KC_A,        KC_S,          KC_D,    KC_F,    KC_G,                                               KC_H,        KC_J,       KC_K,       KC_L,    KC_SCLN, LT(MOUSE,KC_QUOT),
-  KC_LSPO,         KC_Z,        KC_X,          KC_C,    KC_V,    KC_B,    KC_EQL,               KC_MINS,            KC_N,        KC_M,       KC_COMM,    KC_DOT,  KC_SLSH, KC_RSPC,
-  KC_TRNS,        KC_DEL,      KC_TRNS,      KC_TRNS,KC_TRNS,                                                                    KC_TRNS,   KC_TRNS,   KC_KB_MUTE,G(S(C(KC_F16))), KC_TRNS,
+  KC_PIPE,         KC_PLUS,     KC_LBRC,       KC_LCBR, KC_LPRN, KC_AMPR, KC_TRNS,               KC_TRNS,            KC_EQUAL,    KC_RPRN,    KC_RCBR,    KC_RBRC, KC_ASTR, KC_MINS,
+  KC_TRNS,         KC_Q,        KC_W,          KC_E,    KC_R,    KC_T,    KC_TRNS,               KC_TRNS,            KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,    KC_BSLS,
+  KC_TRNS,         KC_A,        KC_S,          KC_D,    KC_F,    KC_G,                                               KC_H,        KC_J,       KC_K,       KC_L,    KC_SCLN, LT(MOUSE,KC_QUOT),
+  KC_TRNS,         KC_Z,        KC_X,          KC_C,    KC_V,    KC_B,    KC_TRNS,               KC_TRNS,            KC_N,        KC_M,       KC_COMM,    KC_DOT,  KC_SLSH, KC_RSPC,
+  KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS, KC_TRNS,                                                                  KC_TRNS,    KC_TRNS,    KC_EXLM, KC_TRNS, KC_TRNS,
                                                                  KC_TRNS, KC_TRNS,              KC_TRNS,            KC_TRNS,
                                                                           KC_TRNS,              KC_TRNS,
                                                          KC_TRNS,KC_TRNS, KC_TRNS,              KC_TRNS,            KC_TRNS, KC_TRNS
