@@ -2,7 +2,6 @@
 #include "version.h"
 
 enum layers {
-    BASE_PD, // default layer
     QWERTY,
     GAMING,
     MOUSE,
@@ -17,9 +16,7 @@ enum custom_keycodes {
     VRSN = SAFE_RANGE,
 #endif
 };
-
-// clang-format off
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+/*
 [BASE_PD] = LAYOUT_ergodox_pretty(
   // left hand
   KC_PIPE,         KC_PLUS,     KC_LBRC,       KC_LCBR, KC_LPRN, KC_AMPR, KC_MEDIA_PLAY_PAUSE,  G(C(KC_Q)),         KC_EQUAL,    KC_RPRN,    KC_RCBR,    KC_RBRC, KC_ASTR, KC_EXLM,
@@ -31,17 +28,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                           C(KC_LEFT),           C(KC_RIGHT),
                                                          KC_BSPC,KC_LGUI,KC_LCTL,         KC_LALT,            KC_ENT, KC_SPC
 ),
+*/
 
+
+// clang-format off
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [QWERTY] = LAYOUT_ergodox_pretty(
   // left hand
-  KC_PIPE,         KC_PLUS,     KC_LBRC,       KC_LCBR, KC_LPRN, KC_AMPR, KC_TRNS,               KC_TRNS,            KC_EQUAL,    KC_RPRN,    KC_RCBR,    KC_RBRC, KC_ASTR, KC_MINS,
-  KC_TRNS,         KC_Q,        KC_W,          KC_E,    KC_R,    KC_T,    KC_TRNS,               KC_TRNS,            KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,    KC_BSLS,
-  KC_TRNS,         KC_A,        KC_S,          KC_D,    KC_F,    KC_G,                                               KC_H,        KC_J,       KC_K,       KC_L,    KC_SCLN, LT(MOUSE,KC_QUOT),
-  KC_TRNS,         KC_Z,        KC_X,          KC_C,    KC_V,    KC_B,    KC_TRNS,               KC_TRNS,            KC_N,        KC_M,       KC_COMM,    KC_DOT,  KC_SLSH, KC_RSPC,
-  KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS, KC_TRNS,                                                                  KC_TRNS,    KC_TRNS,    KC_EXLM, KC_TRNS, KC_TRNS,
-                                                                 KC_TRNS, KC_TRNS,              KC_TRNS,            KC_TRNS,
-                                                                          KC_TRNS,              KC_TRNS,
-                                                         KC_TRNS,KC_TRNS, KC_TRNS,              KC_TRNS,            KC_TRNS, KC_TRNS
+  KC_PIPE,         KC_PLUS,     KC_LBRC,       KC_LCBR, KC_LPRN, KC_AMPR, KC_MEDIA_PLAY_PAUSE,  G(C(KC_Q)),          KC_EQUAL,    KC_RPRN,    KC_RCBR,    KC_RBRC, KC_ASTR, KC_MINS,
+  KC_TAB,          KC_Q,        KC_W,          KC_E,    KC_R,    KC_T,    KC_NO,                G(S(C(KC_F16))),     KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,    KC_BSLS,
+  LT(ARROWS, KC_ESC),KC_A,      KC_S,          KC_D,    KC_F,    KC_G,                                               KC_H,        KC_J,       KC_K,       KC_L,    KC_SCLN, LT(MOUSE,KC_QUOT),
+  KC_LSPO,         KC_Z,        KC_X,          KC_C,    KC_V,    KC_B,    KC_DEL,               KC_KB_MUTE,          KC_N,        KC_M,       KC_COMM,    KC_DOT,  KC_SLSH, KC_RSPC,
+  KC_HYPR,         KC_DLR,      OSL(LSWITCH),  KC_LEFT, KC_RGHT,                                                                 KC_UP,      KC_DOWN,    KC_EXLM, KC_AT,   KC_MEH,
+                                                                 KC_MPRV, KC_MNXT,              KC_KB_VOLUME_DOWN,  KC_KB_VOLUME_UP,
+                                                                          C(KC_LEFT),           C(KC_RIGHT),
+                                                         KC_BSPC,KC_LGUI,KC_LCTL,         KC_LALT,            KC_ENT, KC_SPC
 ),
 
 [GAMING] = LAYOUT_ergodox_pretty(
@@ -68,7 +69,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                          KC_ACL0, KC_ACL1,KC_ACL2,              KC_TRNS,            KC_TRNS, KC_TRNS
 ),
 
-
 [ARROWS] = LAYOUT_ergodox_pretty(
   // left hand
   KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,              KC_TRNS,            KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
@@ -83,10 +83,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [LSWITCH] = LAYOUT_ergodox_pretty(
   // left hand
-  KC_TRNS,         TO(BASE_PD), TO(QWERTY),    TO(GAMING),KC_TRNS,KC_TRNS,KC_TRNS,              KC_TRNS,            KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
+  KC_TRNS,         TO(QWERTY), TO(GAMING),     KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,              KC_TRNS,            KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,              KC_TRNS,            KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS,   KC_TRNS,KC_TRNS,                                          KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
-  KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,              KC_TRNS,            KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
+  KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS,   KC_TRNS,KC_TRNS,QK_MAKE,              QK_BOOTLOADER,      KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS,         KC_TRNS,     KC_TRNS,       KC_TRNS,   KC_TRNS,                                                               KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
                                                                  KC_TRNS, KC_TRNS,              KC_TRNS,            KC_TRNS,
                                                                           KC_TRNS,              KC_TRNS,
@@ -120,22 +120,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 // clang-format off
-const key_override_t kc_pipe_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_PIPE, KC_GRV, 1 << BASE_PD);
-const key_override_t kc_plus_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_PLUS, KC_1, 1 << BASE_PD);
-const key_override_t kc_lbrc_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_LBRC, KC_2, 1 << BASE_PD);
-const key_override_t kc_lcbr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_LCBR, KC_3, 1 << BASE_PD);
-const key_override_t kc_lprn_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_LPRN, KC_4, 1 << BASE_PD);
-const key_override_t kc_ampr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_AMPR, KC_5, 1 << BASE_PD);
-const key_override_t kc_equal_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_EQUAL, KC_6, 1 << BASE_PD);
-const key_override_t kc_rprn_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_RPRN, KC_7, 1 << BASE_PD);
-const key_override_t kc_rcbr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_RCBR, KC_8, 1 << BASE_PD);
-const key_override_t kc_rbrc_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_RBRC, KC_9, 1 << BASE_PD);
-const key_override_t kc_astr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_ASTR, KC_0, 1 << BASE_PD);
-const key_override_t kc_exlm_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_EXLM, KC_PERC, 1 << BASE_PD);
-const key_override_t kc_bsls_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_BSLS, KC_HASH, 1 << BASE_PD);
-const key_override_t kc_at_override    = ko_make_with_layers(MOD_MASK_SHIFT, KC_AT, KC_CIRC, 1 << BASE_PD);
-const key_override_t kc_slsh_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_SLSH, KC_QUES, 1 << BASE_PD);
-const key_override_t kc_dlr_override   = ko_make_with_layers(MOD_MASK_SHIFT, KC_DLR, KC_TILD, 1 << BASE_PD);
+const key_override_t kc_pipe_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_PIPE, KC_GRV, (1 << QWERTY));
+const key_override_t kc_plus_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_PLUS, KC_1, (1 << QWERTY));
+const key_override_t kc_lbrc_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_LBRC, KC_2, (1 << QWERTY));
+const key_override_t kc_lcbr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_LCBR, KC_3, (1 << QWERTY));
+const key_override_t kc_lprn_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_LPRN, KC_4, (1 << QWERTY));
+const key_override_t kc_ampr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_AMPR, KC_5, (1 << QWERTY));
+const key_override_t kc_equal_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_EQUAL, KC_6, (1 << QWERTY));
+const key_override_t kc_rprn_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_RPRN, KC_7, (1 << QWERTY));
+const key_override_t kc_rcbr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_RCBR, KC_8, (1 << QWERTY));
+const key_override_t kc_rbrc_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_RBRC, KC_9, (1 << QWERTY));
+const key_override_t kc_astr_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_ASTR, KC_0, (1 << QWERTY));
+const key_override_t kc_exlm_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_EXLM, KC_PERC, (1 << QWERTY));
+const key_override_t kc_bsls_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_BSLS, KC_HASH, (1 << QWERTY));
+const key_override_t kc_at_override    = ko_make_with_layers(MOD_MASK_SHIFT, KC_AT, KC_CIRC, (1 << QWERTY));
+const key_override_t kc_slsh_override  = ko_make_with_layers(MOD_MASK_SHIFT, KC_SLSH, KC_QUES, (1 << QWERTY));
+const key_override_t kc_dlr_override   = ko_make_with_layers(MOD_MASK_SHIFT, KC_DLR, KC_TILD, (1 << QWERTY));
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
